@@ -319,7 +319,7 @@ if (typeof browser === "undefined") {
        *        yield a response. False otherwise.
        */
       return function onMessage(message, sender, sendResponse) {
-        let result = listener(message, sender);
+        let result = listener(message, sender, sendResponse);
 
         if (isThenable(result)) {
           result.then(sendResponse, error => {
@@ -329,7 +329,7 @@ if (typeof browser === "undefined") {
 
           return true;
         } else if (result !== undefined) {
-          sendResponse(result);
+          return result;
         }
       };
     });
