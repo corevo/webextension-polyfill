@@ -217,10 +217,10 @@ describe("browser-polyfill", () => {
         let wrappedListenerReturnsTrue = fakeChrome.runtime.onMessage.addListener.thirdCall.args[0];
 
         let returnedValue = wrappedListenerReturnsFalse("test message", {name: "fake sender"}, sendResponseSpy);
-        equal(returnedValue, false, "the first wrapped listener should return false");
+        equal(returnedValue, undefined, "the first wrapped listener should return undefined");
 
         returnedValue = wrappedListenerReturnsValue("test message2", {name: "fake sender"}, sendResponseSpy);
-        equal(returnedValue, false, "the second wrapped listener should return false");
+        equal(returnedValue, undefined, "the second wrapped listener should return undefined");
 
         returnedValue = wrappedListenerReturnsTrue("test message3", {name: "fake sender"}, sendResponseSpy);
         equal(returnedValue, true, "the third wrapped listener should return true");

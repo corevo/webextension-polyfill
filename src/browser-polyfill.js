@@ -394,7 +394,7 @@ if (typeof browser === "undefined" || Object.getPrototypeOf(browser) !== Object.
         // wrappedSendResponse synchronously, we can exit earlier
         // because there will be no response sent from this listener.
         if (result !== true && !isResultThenable && !didCallSendResponse) {
-          return false;
+          return;
         }
 
         // A small helper to send the message if the promise resolves
